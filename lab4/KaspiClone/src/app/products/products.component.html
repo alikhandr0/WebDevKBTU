@@ -1,0 +1,22 @@
+<div class="product-list">
+  <div class="product-card" *ngFor="let product of products">
+    <img [src]="product.images[0]" alt="{{ product.name }}">
+    
+    <div class="product-info">
+      <h2>{{ product.name }}</h2>
+      <p class="product-description">{{ product.description }}</p>
+    </div>
+
+    <!-- Отдельный блок для рейтинга -->
+    <p class="product-rating"><strong>Rating:</strong> ⭐ {{ product.rating }}</p>
+    
+    <div class="button-container">
+      <button class="buy-button" (click)="buyProduct(product.name)">Buy</button>
+
+      <div class="contact-buttons">
+        <a [href]="'https://t.me/dayatakoi'" target="_blank" class="telegram-button">Telegram</a>
+        <a [href]="'https://wa.me/77067071170'" target="_blank" class="whatsapp-button">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</div>

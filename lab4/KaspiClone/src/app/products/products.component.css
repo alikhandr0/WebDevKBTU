@@ -1,0 +1,142 @@
+/* Общий стиль страницы */
+body {
+  background-color: #ffffff; /* Белый фон */
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Контейнер списка товаров */
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 товаров в ряд */
+  gap: 40px 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Карточка товара */
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Тень для эффекта поднятия */
+  background: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Эффект увеличения карточки при наведении */
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Изображения */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  background-color: white;
+  border-radius: 10px;
+}
+
+/* Название товара */
+.product-card h2 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+/* Описание товара */
+.product-card p {
+  font-size: 14px;
+  color: #333;
+  margin: 5px 0;
+}
+
+/* Кнопки */
+button, .telegram-button, .whatsapp-button {
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Кнопка "Купить" */
+button {
+  background-color: #007bff;
+  color: white;
+  width: 100%;
+  font-weight: bold;
+  box-shadow: 0px 3px 6px rgba(0, 123, 255, 0.3);
+}
+
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Контейнер для кнопок мессенджеров */
+.contact-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Кнопка Telegram */
+.telegram-button {
+  background-color: #0088cc;
+  color: white;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0px 3px 6px rgba(0, 136, 204, 0.3);
+}
+
+.telegram-button:hover {
+  background-color: #0077b5;
+  transform: scale(1.05);
+}
+
+/* Кнопка WhatsApp */
+.whatsapp-button {
+  background-color: #25D366;
+  color: white;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0px 3px 6px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-button:hover {
+  background-color: #1ebe57;
+  transform: scale(1.05);
+}
+
+/* Адаптация под мобильные устройства */
+@media (max-width: 1200px) {
+  .product-list {
+    grid-template-columns: repeat(3, 1fr); /* 3 товара в ряд */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: repeat(2, 1fr); /* 2 товара в ряд */
+  }
+}
+
+@media (max-width: 480px) {
+  .product-list {
+    grid-template-columns: repeat(1, 1fr); /* 1 товар в ряд */
+  }
+}
