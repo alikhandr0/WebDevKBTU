@@ -1,0 +1,75 @@
+<header>
+  <h1>Online Shop</h1>
+</header>
+
+<div class="main-content">
+  <div class="categories">
+    <button
+      (click)="selectCategory(null)"
+      [class.active]="!selectedCategory"
+    >
+      Все категории
+    </button>
+    <button
+      *ngFor="let category of categories"
+      (click)="selectCategory(category)"
+      [class.active]="selectedCategory?.id === category.id"
+    >
+      {{ category.name }}
+    </button>
+  </div>
+
+  <div class="products-container">
+    <div *ngFor="let product of filteredProducts" class="product-card">
+      <div class="image-gallery" [class.sliding-left]="slidingDirection[product.id] === 'left'" [class.sliding-right]="slidingDirection[product.id] === 'right'">
+        <button class="gallery-nav prev" (click)="prevImage(product)">
+          <span class="material-icons">arrow_back_ios</span>
+        </button>
+        <img [src]="product.images[currentImageIndex[product.id]]" [alt]="product.name">
+        <button class="gallery-nav next" (click)="nextImage(product)">
+          <span class="material-icons">arrow_forward_ios</span>
+        </button>
+        <div class="gallery-dots">
+          <div 
+            *ngFor="let img of product.images; let i = index" 
+            class="gallery-dot" 
+            [class.active]="currentImageIndex[product.id] === i"
+            (click)="goToImage(product, i)">
+          </div>
+        </div>
+      </div>
+      
+      <div class="product-info">
+        <h2>{{ product.name }}</h2>
+        <p>{{ product.description }}</p>
+        <div class="rating">
+          <span>Рейтинг: {{ product.rating }}/5</span>
+          <div class="stars">
+            <span *ngFor="let star of [1,2,3,4,5]">
+              ⭐
+            </span>
+          </div>
+        </div>
+        <p class="price">{{ product.price }} ₸</p>
+        
+        <div class="button-group">
+          <button (click)="viewOnKaspi(product.kaspiLink)" class="primary-btn">
+            Купить
+          </button>
+          <div class="share-buttons">
+            <button (click)="shareOnTelegram(product)" class="icon-btn telegram" title="Поделиться в Telegram">
+              <i class="fab fa-telegram-plane"></i>
+            </button>
+            <button (click)="shareOnWhatsApp(product)" class="icon-btn whatsapp" title="Поделиться в WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2024 Online Shop. Все права защищены.</p>
+</footer>
