@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Для *ngFor и других директив
+import { CommonModule } from '@angular/common'; 
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [CommonModule], // Добавляем CommonModule
+  imports: [CommonModule],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })

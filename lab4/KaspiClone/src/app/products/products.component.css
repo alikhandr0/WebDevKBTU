@@ -30,7 +30,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Эффект увеличения карточки при наведении */
+/* Эффект увеличения карточки */
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
@@ -68,7 +68,7 @@ button, .telegram-button, .whatsapp-button {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Кнопка "Купить" */
+/* Кнопка BUY */
 button {
   background-color: #007bff;
   color: white;
@@ -90,7 +90,7 @@ button:hover {
   margin-top: 10px;
 }
 
-/* Кнопка Telegram */
+/* Telegram */
 .telegram-button {
   background-color: #0088cc;
   color: white;
@@ -106,7 +106,7 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Кнопка WhatsApp */
+/* WhatsApp */
 .whatsapp-button {
   background-color: #25D366;
   color: white;
@@ -120,23 +120,4 @@ button:hover {
 .whatsapp-button:hover {
   background-color: #1ebe57;
   transform: scale(1.05);
-}
-
-/* Адаптация под мобильные устройства */
-@media (max-width: 1200px) {
-  .product-list {
-    grid-template-columns: repeat(3, 1fr); /* 3 товара в ряд */
-  }
-}
-
-@media (max-width: 768px) {
-  .product-list {
-    grid-template-columns: repeat(2, 1fr); /* 2 товара в ряд */
-  }
-}
-
-@media (max-width: 480px) {
-  .product-list {
-    grid-template-columns: repeat(1, 1fr); /* 1 товар в ряд */
-  }
 }
